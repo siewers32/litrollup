@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@rollup/plugin-terser": "^0.4.4",
+    "htmx.org": "^2.0.3",
     "lit": "^3.2.1"
   }
 }

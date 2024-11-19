@@ -3,7 +3,7 @@ import terser from '@rollup/plugin-terser';
 import copy from 'rollup-plugin-copy';
 
 export default {
-  input: 'src/main.js', // Entry point van je project
+  input: ['src/main.js', 'src/htmx.js'], // Entry point van je project
   output: {
     dir: 'output', // Output map
     format: 'es', // Gebruik ES-modules

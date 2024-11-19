@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="htmx.js"></script>
     <script type="module" src="main.js"></script>
     <link rel="stylesheet" href="./css/test.css">
 </head>
@@ -14,6 +15,21 @@
     <p>Ja hij gaat best lekker zo. Geen gedoe enzo.</p>
     <my-page></my-page>
     <my-element>Blaberdie</my-element>
+    <button hx-get="messages.html">
+        Get Messages
+    </button>
+    <button hx-get="/messages.html" hx-confirm="Are you sure you wish to delete your account?">
+        Click Me!
+        <img class="htmx-indicator" src="svg-loaders/circles.svg">
+    </button>
+    <form id="example-form" hx-get="/messages.html">
+        <input name="example" onkeyup="this.setCustomValidity('') // reset the validation on keyup"
+            hx-on:htmx:validation:validate="if(this.value != 'foo') {
+                        this.setCustomValidity('Please enter the value foo') // set the validation error
+                        htmx.find('#example-form').reportValidity()          // report the issue
+                    }">
+    </form>
+
 </body>
 
 </html>
